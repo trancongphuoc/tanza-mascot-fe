@@ -1,0 +1,35 @@
+@import "abstracts/functions";
+@import "abstracts/mixins";
+@import "abstracts/variables";
+
+@import "base/base";
+@import "base/animations";
+@import "base/typography";
+@import "base/utilities";
+
+@import 'components/card';
+@import 'components/avatar';
+@import 'components/full-card';
+@import 'components/icoin.scss';
+@import 'components/arrow-white';
+@import 'components/flipcard';
+@import 'components/customToast';
+@import 'components/popupCenter';
+@import 'components/openCard';
+@import 'components/popupCenterHistory';
+@import 'components/buttonMoving';
+
+@import "pages/home";
+@import 'bestPlayers';
+@import 'myBonusToday';
+@import 'dialogBetting';
+@import 'dialogWinLost';
+@import 'popupRule';
+@import 'popupGameHistory';
+@import 'popupMyHistory';
+@import 'openCard';
+@import 'popupNotification';
+@import 'popupMaintain';
+
+
+@import 'layout/bettingTable';

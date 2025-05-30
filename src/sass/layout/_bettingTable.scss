@@ -1,0 +1,152 @@
+.betting-table {
+
+    margin: 0 16px;
+
+
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: min-content min-content;
+
+    justify-content: center;
+    align-content: start;
+
+    &__bg {
+        grid-area: 1 / 1 / -1 / -1;
+        z-index: -1;
+ 
+        width: 100%;;
+        max-height: 100%;
+        max-height: 320px;
+
+        margin-top: 10px;
+        @include non_select;
+        pointer-events: none;
+    }
+
+    &--counter {
+        grid-area: 1 / 1 / 2 / 2;
+        color: $color-white;
+        font-size: 13px;
+        font-weight: 400;
+        line-height: 1;
+        max-width: 135px;
+        height: 29px;
+
+        background-size: 100% 100%;
+        background-image: url(../assets//bg_countdown.svg);
+
+        // background: -webkit-linear-gradient(to left, transparent, #094348 25%, #0A5B62 50%, #094348 75%, transparent);
+        // background: linear-gradient(to left, transparent, #094348 25%, #0A5B62 50%, #094348 75%, transparent);
+
+        padding: 7px 25px 9px 25px;
+        padding: 7px 25px 9px 25px;
+        margin: 1px auto;
+        z-index: 2;
+
+        @include non_select;
+    }
+
+    &__content {
+        grid-area: 2 / 1 / 3 / 2;
+        z-index: 2;
+        padding: 5px 40px 33px 40px;
+        z-index: 3;
+        max-width: 100%;
+
+        display: grid;
+        grid-template-rows: repeat(2, min-content);
+        grid-template-columns: repeat(4, 1fr);
+
+        column-gap: 1px;
+        row-gap: 6px;
+    }
+
+    &__card {
+        display: grid;
+        grid-template-rows: repeat(4, min-content);
+        grid-template-columns: 1fr;
+        justify-content: center;
+        justify-items: center;
+        align-items: start;
+        width: 1fr;
+
+        @include non_select;
+        @include non_decor_button;
+    
+        &--no {
+            margin-top: 3px;
+            font-size: 9px;
+            color: $color-green-jungle;
+            line-height: 1;
+            font-family: 'Yeseva One';
+        }
+    
+        &--bonus {
+            margin-top: 2px;
+            padding: 2px 18px;
+    
+            // background: linear-gradient(to left, transparent,#094348 25%, #0A5B62 50%,#094348 75%, transparent);
+            // background: -webkit-linear-gradient(to left, transparent,#094348 25%, #0A5B62 50%,#094348 75%, transparent);
+            
+            font-size: 12px;
+            font-weight: 400;
+    
+            line-height: 1;
+            color: $color-aquamarine-medium;
+
+            background-size: 100% 100%;
+            background-image: url(../assets/bg_bonus.svg);
+
+
+        }
+    
+        &--players {    
+            margin-top: 4px;
+            font-size: 10px;
+            font-weight: 400;
+            color: $color-white;
+            line-height: 1.1;
+        }
+    
+        &--bgNormal {
+            max-width: 68px;
+            width: 100%;
+            height: auto;
+            grid-area: 2 / 1/ 3 / 2;
+            z-index: 1;
+
+            @include non_select;
+            @include non_decor_button;
+            pointer-events: none;
+        }
+
+        &--bgSelected {
+            max-width: 68px;
+            width: 100%;
+            height: auto;
+            grid-area: 2 / 1/ 3 / 2;
+            z-index: 2;
+
+            @include non_select;
+            @include non_decor_button;
+            pointer-events: none;
+        }
+    
+        &--zodiac {
+            align-self: center;
+            max-width: 65%;
+            height: auto;
+            grid-area: 2 / 1/ 3 / 2;
+            z-index: 3;
+
+            @include non_select;
+            @include non_decor_button;
+        }
+    
+        @media (max-width: 320px) {
+            &--bonus {
+                padding: 1px 10px;
+            }
+        }
+    }
+}

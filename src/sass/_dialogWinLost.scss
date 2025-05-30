@@ -1,0 +1,396 @@
+@mixin topUser1($params) {
+    $outer-width: map-get($params, outer-width);
+    $outer-color-top: map-get($params, outer-color-top);
+    $outer-color-bottom: map-get($params, outer-color-bottom);
+    $middle-width: map-get($params, middle-width);
+    $inner-width: map-get($params, inner-width);
+
+    display: grid;
+    justify-items: center;
+    align-content: end;
+    margin-bottom: 11px;
+
+    &--img {
+        grid-area: 1 / 1 / 2 / 2;
+        width: 28px;
+        align-self: start;
+        justify-self: center;
+
+        position: relative;
+
+        right: calc(($outer-width / 5.5) * -1);
+        top: calc(($outer-width / 5.2) * -1);;
+    }
+
+    &--url {
+        grid-area: 1 / 1 / 2 / 2;
+        @include avatarTwoLayer((
+            outer-width: $outer-width,
+            outer-color-top: $outer-color-top,
+            outer-color-bottom: $outer-color-bottom,
+            middle-width: $middle-width,
+            inner-width: $inner-width,
+        ));
+        margin-bottom: 7px;
+    }
+
+    &--name {
+        color: $color-white;
+        line-height: 1.1;
+        font-size: 14px;
+        font-weight: 400;
+        margin-bottom: 1.5px;
+        text-align: center;
+
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+
+        width: 100%;   
+        padding: 0 10px;
+    }
+}
+
+@mixin topUser23($params) {
+    $outer-width: map-get($params, outer-width);
+    $outer-color-top: map-get($params, outer-color-top);
+    $outer-color-bottom: map-get($params, outer-color-bottom);
+    $middle-width: map-get($params, middle-width);
+    $inner-width: map-get($params, inner-width);
+
+    display: grid;
+    justify-items: center;
+    align-content: end;
+    margin-bottom: 11px;
+
+    &--img {
+        grid-area: 1 / 1 / 2 / 2;
+        width: 28px;
+        align-self: start;
+        justify-self: center;
+
+        position: relative;
+
+        right: calc(($outer-width / 5.5) * -1);
+        top: calc(($outer-width / 4.6) * -1);;
+    }
+
+    &--url {
+        grid-area: 1 / 1 / 2 / 2;
+        @include avatarTwoLayer((
+            outer-width: $outer-width,
+            outer-color-top: $outer-color-top,
+            outer-color-bottom: $outer-color-bottom,
+            middle-width: $middle-width,
+            inner-width: $inner-width,
+        ));
+        margin-bottom: 7px;
+    }
+
+    &--name {
+        color: $color-white;
+        line-height: 1.1;
+        font-size: 14px;
+        font-weight: 400;
+        margin-bottom: 1.5px;
+        text-align: center;
+
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+
+        width: 100%;   
+        padding: 0 10px;
+    }
+}
+
+@mixin line {
+    align-self: start;
+    margin-top: 8.5px;
+}
+
+@mixin primary-text {
+    font-size: 20px;
+    font-weight: 400;
+    text-decoration: none;
+    color: $color-white;
+    text-transform: capitalize;
+    align-self: end;
+}
+
+
+.lost-popup-overlay {
+    position: fixed;
+    display: grid;
+    justify-content: stretch;
+    align-content: end;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, .4);
+    z-index: 4;
+}
+  
+  .lost-popup {
+    position: relative;
+    max-width: 430px;
+    margin: 0 auto;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(auto-fit, min-content);
+    justify-items: center;
+    align-content: end;
+
+    @include non_select;
+    pointer-events: none;
+
+    .lost {
+        &--BgContent {
+            grid-area: 3 / 1 / 6 / 4;
+            z-index: 5;
+            width: 100%;
+            height: 100%;
+            max-height: calc(253px + env(safe-area-inset-bottom) / 2) ;
+
+            @include non_select;
+            pointer-events: none;
+        }
+    
+        &--BgLighter {
+            grid-area: 1 / 1 / 2 / 4;
+            z-index: 5;
+            align-self: end;
+            transform: translateY(50px);
+            @include non_select;
+        }
+    
+        &--BgHeader {
+            grid-area: 2 / 1 / 3 / -1;
+            z-index: 6;
+            max-width: 245px;
+            object-fit: fill;
+            transform: translateY(24px);
+            @include non_select;
+        }
+    
+        &--zodiac-background {
+            align-self: center;
+            grid-area: 1 / 1 / 2 / -1;
+            z-index: 6;
+            width: 80px;
+            transform: translateY(20px);
+            @include non_select;
+
+        }
+    
+        &--zodiac-card {
+            grid-area: 1 / 1 / 2 / -1;
+            z-index: 7;
+            width: 55px;
+            align-self: center;
+            transform: translateY(20px);
+
+            @include non_select;
+            @include non_decor_button;
+        }
+    
+    
+        &--primary-text {
+            grid-area: 2 / 1 / 3 / -1;
+            @include primary-text;
+            @include non_select;
+            z-index: 7;
+            transform: translateY(1px);
+            line-height: 1;
+            text-shadow: 1px 1px 2px rgba($color-text-shadow, .5);
+        }
+    
+        &__secondary { 
+            grid-area: 3 / 1 / 4 / 4;
+            font-size: 16px;
+            font-weight: 400;
+            color: $color-white;
+            text-align: center;
+            line-height: 1.15;
+
+            margin-bottom: 10px;
+            margin-top: 27px;
+            z-index: 7;
+
+            @include non_select;
+        }
+    
+        &--light1 {
+            grid-area: 4 / 1 / 5 / 2;
+            @include line;
+            margin-right: 0;
+            justify-self: end;
+            z-index: 7;
+            @include non_select;
+        }
+    
+        &--tertiary {
+            grid-area: 4 / 2 / 5 / 3;   
+            line-height: 1;
+            color: $color-white;
+            font-size: 14px;
+            font-weight: 400;
+            margin-bottom: 20px;
+            z-index: 7;
+            @include non_select;
+        }
+    
+        &--light2 {
+            grid-area: 4 / 3 / 5 / 4;
+            @include line;
+            margin-left: 0px;
+            justify-self: start;
+            z-index: 7;
+            @include non_select;
+        }
+    
+        &__no3 {
+            grid-area: 5 / 3 / 6 / 4;
+            @include topUser23((
+                outer-width: 67px,
+                outer-color-top: $color-lost-av-no3-t,
+                outer-color-bottom: $color-lost-av-no3-b,
+                middle-width: 63px,
+                inner-width: 59px,
+            ));
+
+            padding-right: 4px;
+            z-index: 7;
+            @include non_select;
+
+            padding-bottom: calc(env(safe-area-inset-bottom) / 2);
+        }
+    
+        &__no2 {
+            grid-area: 5 / 1 / 6 / 2;
+            @include topUser23((
+                outer-width: 67px,
+                outer-color-top: $color-lost-av-no2-t,
+                outer-color-bottom: $color-lost-av-no2-b,
+                middle-width: 63px,
+                inner-width: 59px,
+            ));
+            padding-left: 4px;
+            z-index: 7;
+            @include non_select;
+
+            padding-bottom: calc(env(safe-area-inset-bottom) / 2);
+
+        }
+    
+        &__no1 {
+            grid-area: 5 / 2 / 6 / 3;
+            @include topUser1((
+                outer-width: 77px,
+                outer-color-top: $color-lost-av-no1-b,
+                outer-color-bottom: $color-lost-av-no1-t,
+                middle-width: 74px,
+                inner-width: 70px,
+                crown-left: -35%,          
+                crown-top: -60%,
+            ));
+            padding-bottom: calc(19.5px + env(safe-area-inset-bottom) / 2);
+            z-index: 7;
+            @include non_select;
+        }
+    
+        &__totalIcoin {
+            display: flex;
+            line-height: 1;
+            align-items: center;
+            z-index: 7;
+    
+            &--img{
+                margin-right: 3px;
+                width: 12px;
+                height: 12px;
+                z-index: 7;
+                @include non_select;
+            }
+    
+            &--icoin {
+                color: $color-white;
+                font-size: 13px; 
+                font-weight: 400;
+                line-height: 1;
+                z-index: 7;
+                @include non_select;
+            }
+        }
+    }
+}
+
+.win {
+    &--primary-text {
+        grid-area: 2 / 1 / 3 / -1;
+        z-index: 6;
+
+        transform: translateY(33px);
+        @include non_select;
+    } 
+
+    &__secondary {
+        grid-area: 3 / 1 / 4 / 4;
+        font-size: 16px;
+        font-weight: 400;
+        color: $color-white;
+        text-align: center;
+        line-height: 1.15;
+
+        margin-bottom: 10px;
+        margin-top: 26.5px;
+        z-index: 7;
+        @include non_select;
+    }
+
+    @media (max-width: 375px) {
+        &__secondary {
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 1;
+            margin-bottom: 5px;
+            margin-top: 20px;
+            @include non_select;
+        }
+    }
+
+    &__secondary--text {
+        font-size: 16px;
+        font-weight: 400;
+        color: $color-white;
+        text-align: center;
+        z-index: 7;
+        @include non_select;
+    }
+
+    &__totalIcoin {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 1px;
+        @include non_select;
+
+        &--img {
+            width: 16px;
+            height: auto;
+            margin-right: 5px;
+            @include non_select;
+        }
+
+        &--icoin {
+            font-size: 16px;
+            font-weight: 450;
+            color: $color-white;
+            text-align: center;
+            @include non_select;
+        }
+    }
+}
+
